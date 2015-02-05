@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace chordlib\Http\Controllers;
 
 class HomeController extends Controller {
 

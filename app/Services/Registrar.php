@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace chordlib\Services;
 
-use App\User;
+use chordlib\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

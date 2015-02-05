@@ -19,3 +19,21 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+
+/*Artist Routes*/
+
+// Bind route parameters.
+Route::model('artist', 'Artist');
+
+// Show pages.
+Route::get('/artist', 'ArtistsController@index');
+Route::get('/artist/create', 'ArtistsController@create');
+Route::get('/artist/edit/{artist}', 'ArtistsController@edit');
+Route::get('/artist/delete/{artist}', 'ArtistsController@delete');
+
+// Handle form submissions.
+Route::post('/artist/create', 'ArtistsController@handleCreate');
+Route::post('/artist/edit', 'ArtistsController@handleEdit');
+Route::post('/artist/delete', 'ArtistsController@handleDelete');
