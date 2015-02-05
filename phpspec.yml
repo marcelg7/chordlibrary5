@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: chordlib
+        psr4_prefix: chordlib
         src_path: app

@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace chordlib\Commands;
 
 abstract class Command {
 

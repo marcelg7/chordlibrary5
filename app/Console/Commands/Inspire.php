@@ -1,4 +1,4 @@
-<?php namespace App\Console\Commands;
+<?php namespace chordlib\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
