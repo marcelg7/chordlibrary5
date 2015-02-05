@@ -68,7 +68,7 @@
         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Button 2</a>
         <div data-role="navbar">
             <ul>
-                <li><a href="index.html" class="ui-btn ui-btn-inline" data-icon="home">Home</a></li>
+                <li><a href="{{ action('ArtistsController@index') }}" class="ui-btn ui-btn-inline" data-icon="home">Home</a></li>
                 <li><a href="#setListsPanel" class="ui-btn ui-btn-inline" data-icon="bullets">Set Lists</a></li>
                 <li><a href="#artistsPanel" data-icon="star">Artists</a></li>
                 <li><a href="#songsPanel" data-icon="star">Songs</a></li>
