@@ -1,5 +1,8 @@
 <?php namespace chordlib\Http\Controllers;
 
+use chordlib\Artist;
+use chordlib\Song;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +33,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$artists = Artist::all()->sortBy('name');
+		$songs = Song::all()->sortBy('title');
+
+		return view('home', compact('artists', 'songs'));
 	}
 
 }

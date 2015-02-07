@@ -1,6 +1,7 @@
 @extends('layout.main')
 
-@section('content')
+@section('artistsPanel')
 
-<h1>Main Index of Artists</h1>
+    ASDFASDF
+
 @stop
