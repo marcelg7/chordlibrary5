@@ -39,7 +39,7 @@
         <h2>Songs</h2>
         <div data-role="navbar">
             <ul>
-                <li><a href="{{ action('ArtistsController@create')  }}" class="ui-btn ui-btn-inline" data-icon="plus">New</a></li>
+                <li><a href="{{ action('SongsController@create')  }}" class="ui-btn ui-btn-inline" data-icon="plus">New</a></li>
                 <li><a href="#" data-icon="edit">Edit</a></li>
                 <li><a href="#" data-icon="star">Starred</a></li>
             </ul>
@@ -57,17 +57,19 @@
         @else
             <a href="/auth/logout" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Logout</a>
         @endif
+
         <h1>Chord Library</h1>
+
         <form>
             <input type="text" name="search" placeholder="Search" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" />
         </form>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Button 2</a>
+
         <div data-role="navbar">
             <ul>
-                <li><a href="{{ action('ArtistsController@index') }}" class="ui-btn ui-btn-inline" data-icon="home">Home</a></li>
-                <li><a href="#setListsPanel" class="ui-btn ui-btn-inline" data-icon="bullets">Set Lists</a></li>
-                <li><a href="#artistsPanel" data-icon="star">Artists</a></li>
-                <li><a href="#songsPanel" data-icon="star">Songs</a></li>
+                <li><a href="/" class="ui-btn ui-btn-inline" data-icon="home">Home</a></li>
+                <li><a href="/index.php#setListsPanel" class="ui-btn ui-btn-inline" data-icon="bullets">Set Lists</a></li>
+                <li><a href="/index.php#artistsPanel" data-icon="star">Artists</a></li>
+                <li><a href="/index.php#songsPanel" data-icon="star">Songs</a></li>
             </ul>
         </div>
 

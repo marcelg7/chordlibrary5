@@ -2,7 +2,8 @@
 
 use chordlib\Http\Requests;
 use chordlib\Http\Controllers\Controller;
-
+use View;
+use chordlib\Artist;
 use chordlib\Song;
 
 
@@ -44,12 +45,14 @@ class SongsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($songTitle)
+	public function show($songChords)
 	{
-		//$song = Song::where('title', '=', $songTitle)->get();
 
-		//return View::make('chords', compact('song'));
-		echo "show song";
+		$artists = Artist::all()->sortBy('name');
+		$songs = Song::all()->sortBy('title');
+
+		return View::make('home', compact('songChords', 'artists', 'songs'));
+
 	}
 
 	/**

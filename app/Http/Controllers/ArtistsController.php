@@ -2,11 +2,11 @@
 
 use chordlib\Http\Requests;
 use chordlib\Http\Controllers\Controller;
-use chordlib\Artist;
 use View;
 
 use Illuminate\Http\Request;
-
+use chordlib\Artist;
+use chordlib\Song;
 
 class ArtistsController extends Controller {
 
@@ -19,6 +19,7 @@ class ArtistsController extends Controller {
 	{
 		// Show a listing of Artists.
 		$artists = Artist::all();
+
 		return View::make('artists.index', compact('artists'));
 
 	}
@@ -49,9 +50,17 @@ class ArtistsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($artist)
 	{
-		//
+
+		$artists = Artist::all()->sortBy('name');
+
+		$songs = Song::all()->sortBy('title');
+
+		$artistsSongs = Song::where('artist_id', '=', $artist->id)->get();
+		$artistName = $artist->name;
+
+		return View::make('home', compact('artistsSongs', 'artistName', 'artists', 'songs'));
 	}
 
 	/**

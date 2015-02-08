@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('welcome', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -24,21 +23,10 @@ Route::controllers([
 Route::get('/', 'HomeController@index');
 
 /*Artist Routes*/
-
-	// Bind route parameters.
-	Route::model('artist', 'Artist');
-
-	// Show pages.
-	Route::get('/artist', 'ArtistsController@index');
-	Route::get('/artist/create', 'ArtistsController@create');
-	Route::get('/artist/edit/{artist}', 'ArtistsController@edit');
-	Route::get('/artist/delete/{artist}', 'ArtistsController@delete');
-
-	// Handle form submissions.
-	Route::post('/artist/create', 'ArtistsController@handleCreate');
-	Route::post('/artist/edit', 'ArtistsController@handleEdit');
-	Route::post('/artist/delete', 'ArtistsController@handleDelete');
+// Bind route parameters.
+Route::model('artist', 'chordlib\Artist');
+Route::resource('artist', 'ArtistsController');
 
 /*Song Routes*/
-Route::model('song', 'Song');
+Route::model('song', 'chordlib\Song');
 Route::resource('song', 'SongsController');
