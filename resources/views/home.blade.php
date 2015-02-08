@@ -6,7 +6,7 @@
 	</form>
 	<ul data-role="listview" data-filter="true" data-input="#artistFilter" data-autodividers="true" data-inset="true">
 		@foreach($artists as $artist)
-			<li title="{{ $artist->name }}"><a href="{{ URL::route('artist.show', $artist->id) }}">{{ $artist->name }}</a></li>
+			<li title="{{ $artist->name }}"><a href="{{ URL::route('artist.show', ['id' => $artist->id, 'name' => $artist->name]) }}">{{ $artist->name }}</a></li>
 		@endforeach
 	</ul>
 
@@ -20,7 +20,7 @@
 
 	<ul data-role="listview" data-filter="true" data-input="#songFilter" data-autodividers="true" data-inset="true">
 		@foreach($songs as $song)
-			<li title="{{ $song->title }}"><a href="{{ URL::route('song.show', $song->id) }}">{{ $song->title }}</a></li>
+			<li title="{{ $song->title }}"><a href="{{ URL::route('song.show', ['id' => $song->id, 'title' => $song->title]) }}">{{ $song->title }}</a></li>
 		@endforeach
 	</ul>
 @stop
@@ -31,7 +31,10 @@
 	@if(isset($songChords))
 
 		<h3>{{ $songChords->title }}
-			by <a href="{{ URL::route('artist.show', $songChords->artist_id) }}">{{ $songChords->artistName($songChords->artist_id) }}</a>
+			by
+			<a href="{{ URL::route('artist.show', ['id' => $songChords->artist_id, 'name' => $songChords->artistName($songChords->artist_id)]) }}">
+				{{ $songChords->artistName($songChords->artist_id) }}
+			</a>
 		</h3>
 
 		<div data-role="controlgroup" data-type="horizontal">
@@ -51,7 +54,7 @@
 		<h3>{{ $artistName }}</h3>
 		<ul data-role="listview" data-filter="false" data-autodividers="true" data-inset="true">
 			@foreach($artistsSongs as $artistSong)
-				<li><a href="{{ URL::route('song.show', $artistSong->id) }}">{{ $artistSong->title }}</a></li>
+				<li><a href="{{ URL::route('song.show', ['id' => $artistSong->id, 'title' => $artistSong->title]) }}">{{ $artistSong->title }}</a></li>
 			@endforeach
 		</ul>
 	@endif
