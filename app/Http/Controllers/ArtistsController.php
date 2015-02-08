@@ -57,7 +57,7 @@ class ArtistsController extends Controller {
 
 		$songs = Song::all()->sortBy('title');
 
-		$artistsSongs = Song::where('artist_id', '=', $artist->id)->get();
+		$artistsSongs = Song::where('artist_id', '=', $artist->id)->orderBy('title', 'asc')->get();
 		$artistName = $artist->name;
 
 		return View::make('home', compact('artistsSongs', 'artistName', 'artists', 'songs'));

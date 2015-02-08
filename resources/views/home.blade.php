@@ -31,8 +31,12 @@
 	@if(isset($songChords))
 
 		<h3>{{ $songChords->title }}
-			by
-			<a href="{{ URL::route('artist.show', ['id' => $songChords->artist_id, 'name' => $songChords->artistName($songChords->artist_id)]) }}">
+			-
+			<a href="{{ URL::route('artist.show', [
+				'id' => $songChords->artist_id,
+				'name' => $songChords->artistName($songChords->artist_id)
+				]) }}">
+
 				{{ $songChords->artistName($songChords->artist_id) }}
 			</a>
 		</h3>
@@ -52,9 +56,16 @@
 	@if(isset($artistsSongs))
 
 		<h3>{{ $artistName }}</h3>
-		<ul data-role="listview" data-filter="false" data-autodividers="true" data-inset="true">
+		<ul data-role="listview" data-filter="false" data-autodividers="false" data-inset="true">
 			@foreach($artistsSongs as $artistSong)
-				<li><a href="{{ URL::route('song.show', ['id' => $artistSong->id, 'title' => $artistSong->title]) }}">{{ $artistSong->title }}</a></li>
+				<li>
+					<a href="{{ URL::route('song.show', [
+						'id' => $artistSong->id,
+						'title' => $artistSong->title
+						]) }}">
+						{{ $artistSong->title }}
+					</a>
+				</li>
 			@endforeach
 		</ul>
 	@endif
