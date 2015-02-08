@@ -3,7 +3,8 @@
 use chordlib\Http\Requests;
 use chordlib\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use chordlib\Song;
+
 
 class SongsController extends Controller {
 
@@ -43,9 +44,12 @@ class SongsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($songTitle)
 	{
-		//
+		//$song = Song::where('title', '=', $songTitle)->get();
+
+		//return View::make('chords', compact('song'));
+		echo "show song";
 	}
 
 	/**

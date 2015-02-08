@@ -21,7 +21,7 @@
 	<ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
 
 		@foreach($songs as $song)
-			<li title="{{ $song->title }}">{{ $song->title }}</li>
+			<li title="{{ $song->title }}"><a href="{{ action('SongsController@show', $song->title) }}">{{ $song->title }}</a></li>
 		@endforeach
 	</ul>
 @stop
