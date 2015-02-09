@@ -16,7 +16,9 @@ class SongsController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$songs = Song::all()->sortBy('title');
+
+		return View::make('songs.index', compact('songs'));
 	}
 
 	/**
@@ -26,7 +28,7 @@ class SongsController extends Controller {
 	 */
 	public function create()
 	{
-		echo 'create new song';
+		return view('songs.create');
 	}
 
 	/**
@@ -36,7 +38,11 @@ class SongsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$input = Request::all();
+		dd($input);
+		//Song::create($input);
+
+
 	}
 
 	/**

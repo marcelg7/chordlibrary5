@@ -18,7 +18,7 @@ class ArtistsController extends Controller {
 	public function index()
 	{
 		// Show a listing of Artists.
-		$artists = Artist::all();
+		$artists = Artist::all()->sortBy('name');
 
 		return View::make('artists.index', compact('artists'));
 

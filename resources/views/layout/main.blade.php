@@ -46,8 +46,8 @@
             <ul>
                 <li><a href="/" class="ui-btn ui-btn-inline" data-icon="home">Home</a></li>
                 <li><a href="/index.php#setListsPanel" class="ui-btn ui-btn-inline" data-icon="bullets">Set Lists</a></li>
-                <li><a href="/index.php#artistsPanel" data-icon="star">Artists</a></li>
-                <li><a href="/index.php#songsPanel" data-icon="star">Songs</a></li>
+                <li><a href="/artist" data-icon="star">Artists</a></li>
+                <li><a href="/song" data-icon="star">Songs</a></li>
             </ul>
         </div>
 
@@ -55,7 +55,7 @@
 
     <div data-role="main" class="ui-content">
         @yield('content')
-
+        Grid of set lists
     </div> <!-- end main content-->
 
     <div data-role="footer">
