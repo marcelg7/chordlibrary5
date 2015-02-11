@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('welcome', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -20,20 +20,13 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-
+Route::get('/', 'HomeController@index');
 
 /*Artist Routes*/
-
 // Bind route parameters.
-Route::model('artist', 'Artist');
+Route::model('artist', 'chordlib\Artist');
+Route::resource('artist', 'ArtistsController');
 
-// Show pages.
-Route::get('/artist', 'ArtistsController@index');
-Route::get('/artist/create', 'ArtistsController@create');
-Route::get('/artist/edit/{artist}', 'ArtistsController@edit');
-Route::get('/artist/delete/{artist}', 'ArtistsController@delete');
-
-// Handle form submissions.
-Route::post('/artist/create', 'ArtistsController@handleCreate');
-Route::post('/artist/edit', 'ArtistsController@handleEdit');
-Route::post('/artist/delete', 'ArtistsController@handleDelete');
+/*Song Routes*/
+Route::model('song', 'chordlib\Song');
+Route::resource('song', 'SongsController');

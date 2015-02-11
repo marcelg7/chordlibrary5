@@ -3,12 +3,11 @@
 use chordlib\Http\Requests;
 use chordlib\Http\Controllers\Controller;
 use View;
-
-use Illuminate\Http\Request;
 use chordlib\Artist;
 use chordlib\Song;
 
-class ArtistsController extends Controller {
+
+class SongsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,11 +16,7 @@ class ArtistsController extends Controller {
 	 */
 	public function index()
 	{
-		// Show a listing of Artists.
-		$artists = Artist::all();
-
-		return View::make('artists.index', compact('artists'));
-
+		//
 	}
 
 	/**
@@ -31,7 +26,7 @@ class ArtistsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		echo 'create new song';
 	}
 
 	/**
@@ -50,17 +45,14 @@ class ArtistsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($artist)
+	public function show($songChords)
 	{
 
 		$artists = Artist::all()->sortBy('name');
-
 		$songs = Song::all()->sortBy('title');
 
-		$artistsSongs = Song::where('artist_id', '=', $artist->id)->orderBy('title', 'asc')->get();
-		$artistName = $artist->name;
+		return View::make('home', compact('songChords', 'artists', 'songs'));
 
-		return View::make('home', compact('artistsSongs', 'artistName', 'artists', 'songs'));
 	}
 
 	/**
